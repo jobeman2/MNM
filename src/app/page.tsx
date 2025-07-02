@@ -23,17 +23,20 @@ const opensansfont = Open_Sans({
   variable: '--font-open-sans',
 })
 
-// Fade-up animation variant
+// Fade-up animation variant with correct typing
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.1, 0.25, 1], // Equivalent to "easeOut", now TypeScript safe
+    },
   },
 }
 
-// Reusable wrapper for fade-up animation
+// Reusable fade-in wrapper
 const FadeIn = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial="hidden"
