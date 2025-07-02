@@ -18,19 +18,8 @@ const sectionVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { ease: [0.25, 0.1, 0.25, 1], duration: 0.5, type: 'spring', stiffness: 120 },
+    transition: { ease: 'easeOut', duration: 0.5, type: 'spring', stiffness: 120 },
   },
-};
-
-// Animate only scale here; color handled in CSS
-const linkHover = {
-  scale: 1.1,
-  transition: { type: 'spring', stiffness: 300 },
-};
-
-const iconHover = {
-  scale: 1.3,
-  transition: { type: 'spring', stiffness: 300 },
 };
 
 export default function Footer() {
@@ -38,47 +27,9 @@ export default function Footer() {
     <motion.footer
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className="px-6 py-12 md:px-16 bg-white font-dm-sans select-none"
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
-
-        * {
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        input:focus {
-          outline: none;
-          box-shadow: 0 0 10px 3px #cef14b;
-          background-color: #f9fff0;
-          color: #000;
-        }
-
-        input {
-          padding-left: 1rem;
-          padding-right: 1rem;
-          border: none;
-          background-color: #f7fff3;
-          color: #000;
-        }
-
-        button {
-          transition: all 0.3s ease;
-        }
-
-        /* Color change on hover/focus via CSS */
-        .link-hover:hover, .link-hover:focus {
-          color: #5a8f00;
-          outline: none;
-        }
-
-        .icon-hover:hover, .icon-hover:focus {
-          color: #7dbb1f;
-          outline: none;
-        }
-      `}</style>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -99,19 +50,16 @@ export default function Footer() {
               { Icon: Twitter, href: 'https://twitter.com/mbmpromotion', label: 'Twitter' },
               { Icon: Instagram, href: 'https://behance.net/mbmpromotion', label: 'Behance' },
             ].map(({ Icon, href, label }, i) => (
-              <motion.a
+              <a
                 key={i}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="sor-pointer text-black icon-hover"
-                whileHover={iconHover}
-                whileFocus={iconHover}
-                tabIndex={0}
+                className="cursor-pointer text-black hover:text-[#7dbb1f] transform transition duration-300 hover:scale-110"
               >
                 <Icon size={26} />
-              </motion.a>
+              </a>
             ))}
           </div>
         </motion.div>
@@ -146,23 +94,14 @@ export default function Footer() {
           <p className="text-sm mb-3">
             Interested in activating your audience with Audio Ring Back Tone campaigns?
           </p>
-          <motion.p
-            className="text-sm font-semibold sor-text select-text mb-6"
-            style={{ userSelect: 'text', sor: 'default' }}
-            tabIndex={0}
-          >
+          <p className="text-sm font-semibold cursor-text select-text mb-6 text-black hover:text-[#5a8f00] transition">
             hello@mbmpromotion.com
-          </motion.p>
+          </p>
 
           <h4 className="font-semibold text-lg mb-3 text-[#7dbb1f]">Career</h4>
-          <motion.p
-            className="text-sm sor-pointer font-semibold underline link-hover"
-            tabIndex={0}
-            whileHover={linkHover}
-            whileFocus={linkHover}
-          >
+          <p className="text-sm cursor-pointer font-semibold underline text-black hover:text-[#5a8f00] transition">
             See open positions
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Newsletter Signup */}
@@ -173,18 +112,17 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 py-2 px-4 text-sm bg-[#f7fff3] text-black"
+                className="flex-1 py-2 px-4 text-sm bg-[#f7fff3] text-black focus:outline-none focus:ring-2 focus:ring-[#CEF14B]"
                 required
               />
               <button
                 type="submit"
-                className="bg-[#CEF14B] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38]"
+                className="bg-[#CEF14B] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38] transition"
               >
                 Sign Up
               </button>
             </div>
-
-            <label className="flex items-start text-sm space-x-2 sor-pointer">
+            <label className="flex items-start text-sm space-x-2 cursor-pointer">
               <input type="checkbox" className="accent-[#CEF14B] mt-1" />
               <span>
                 I’m okay with getting emails and having that activity tracked to improve my experience.
@@ -204,16 +142,13 @@ export default function Footer() {
       >
         <p>© 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;</p>
         <div className="space-x-5 mt-3 md:mt-0 flex flex-wrap justify-center md:justify-start gap-3 md:gap-0">
-          {['Seity', 'Privacy & Cookie Policy', 'Terms of Service'].map((text, i) => (
-            <motion.span
+          {['Security', 'Privacy & Cookie Policy', 'Terms of Service'].map((text, i) => (
+            <span
               key={i}
-              className="sor-pointer font-semibold link-hover"
-              tabIndex={0}
-              whileHover={linkHover}
-              whileFocus={linkHover}
+              className="cursor-pointer font-semibold hover:text-[#5a8f00] transition"
             >
               {text}
-            </motion.span>
+            </span>
           ))}
         </div>
       </motion.div>
