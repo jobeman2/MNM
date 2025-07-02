@@ -14,31 +14,7 @@ import { Play, Sparkles, PhoneCall, Zap, Camera, X } from 'lucide-react'
 
 const phrases = ['Let Every Ring Speak.', 'Reach Real Audiences.', 'Make Brands Move.']
 
-function Typewriter() {
-  const [index, setIndex] = useState(0)
-  const [visible, setVisible] = useState(true)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false)
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % phrases.length)
-        setVisible(true)
-      }, 300)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <span
-      className={`transition-opacity duration-300 ease-in-out ${
-        visible ? 'opacity-100' : 'opacity-0'
-      } animate-pulse text-[#fdf0ee] font-bold`}
-    >
-      {phrases[index]}
-    </span>
-  )
-}
 
 function Toast({
   message,
