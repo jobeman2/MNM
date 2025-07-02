@@ -1,7 +1,7 @@
 'use client';
-import React from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
-import { motion, Variants } from 'framer-motion';
+import React from "react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -18,8 +18,20 @@ const sectionVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { ease: 'easeOut', duration: 0.5, type: 'spring', stiffness: 120 },
+    transition: { ease: "easeOut", duration: 0.5, type: "spring", stiffness: 120 },
   },
+};
+
+const linkHover = {
+  scale: 1.1,
+  color: "#5a8f00",
+  transition: { type: "spring", stiffness: 300 },
+};
+
+const iconHover = {
+  scale: 1.3,
+  color: "#7dbb1f",
+  transition: { type: "spring", stiffness: 300 },
 };
 
 export default function Footer() {
@@ -30,6 +42,33 @@ export default function Footer() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="px-6 py-12 md:px-16 bg-white font-dm-sans select-none"
     >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+        * {
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        input:focus {
+          outline: none;
+          box-shadow: 0 0 10px 3px #cef14b;
+          background-color: #f9fff0;
+          color: #000;
+        }
+
+        input {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          border: none;
+          background-color: #f7fff3;
+          color: #000;
+        }
+
+        button {
+          transition: all 0.3s ease;
+        }
+      `}</style>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -45,21 +84,24 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6 mt-4">
             {[
-              { Icon: Facebook, href: 'https://facebook.com/mbmpromotion', label: 'Facebook' },
-              { Icon: Instagram, href: 'https://instagram.com/mbmpromotion', label: 'Instagram' },
-              { Icon: Twitter, href: 'https://twitter.com/mbmpromotion', label: 'Twitter' },
-              { Icon: Instagram, href: 'https://behance.net/mbmpromotion', label: 'Behance' },
+              { Icon: Facebook, href: "https://facebook.com/mbmpromotion", label: "Facebook" },
+              { Icon: Instagram, href: "https://instagram.com/mbmpromotion", label: "Instagram" },
+              { Icon: Twitter, href: "https://twitter.com/mbmpromotion", label: "Twitter" },
+              { Icon: Instagram, href: "https://behance.net/mbmpromotion", label: "Behance" },
             ].map(({ Icon, href, label }, i) => (
-              <a
+              <motion.a
                 key={i}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="cursor-pointer text-black hover:text-[#7dbb1f] transform transition duration-300 hover:scale-110"
+                className="cursor-pointer text-black"
+                whileHover={iconHover}
+                whileFocus={iconHover}
+                tabIndex={0}
               >
                 <Icon size={26} />
-              </a>
+              </motion.a>
             ))}
           </div>
         </motion.div>
@@ -70,20 +112,16 @@ export default function Footer() {
           <p className="text-sm mb-6">
             <strong>MBM Promotion Ethiopia</strong>
             <br />
-            Bole Sub City, Kebele 01
-            <br />
-            Addis Abeba
-            <br />
+            Bole Sub City, Kebele 01<br />
+            Addis Abeba<br />
             Ethiopia
           </p>
           <h4 className="font-semibold text-lg mb-3 text-[#7dbb1f]">Headquarters</h4>
           <p className="text-sm">
             <strong>MBM Promotion Ethiopia</strong>
             <br />
-            Bole Sub City, Kebele 01
-            <br />
-            Addis Abeba
-            <br />
+            Bole Sub City, Kebele 01<br />
+            Addis Abeba<br />
             Ethiopia
           </p>
         </motion.div>
@@ -94,14 +132,25 @@ export default function Footer() {
           <p className="text-sm mb-3">
             Interested in activating your audience with Audio Ring Back Tone campaigns?
           </p>
-          <p className="text-sm font-semibold cursor-text select-text mb-6 text-black hover:text-[#5a8f00] transition">
+          <motion.p
+            className="text-sm font-semibold cursor-text select-text mb-6"
+            style={{ userSelect: "text", cursor: "default" }}
+            tabIndex={0}
+            whileHover={{ color: "#5a8f00" }}
+            whileFocus={{ color: "#5a8f00" }}
+          >
             hello@mbmpromotion.com
-          </p>
+          </motion.p>
 
           <h4 className="font-semibold text-lg mb-3 text-[#7dbb1f]">Career</h4>
-          <p className="text-sm cursor-pointer font-semibold underline text-black hover:text-[#5a8f00] transition">
+          <motion.p
+            className="text-sm cursor-pointer font-semibold underline"
+            tabIndex={0}
+            whileHover={linkHover}
+            whileFocus={linkHover}
+          >
             See open positions
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Newsletter Signup */}
@@ -112,16 +161,17 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 py-2 px-4 text-sm bg-[#f7fff3] text-black focus:outline-none focus:ring-2 focus:ring-[#CEF14B]"
+                className="flex-1 py-2 px-4 text-sm bg-[#f7fff3] text-black"
                 required
               />
               <button
                 type="submit"
-                className="bg-[#CEF14B] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38] transition"
+                className="bg-[#CEF14B] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38]"
               >
                 Sign Up
               </button>
             </div>
+
             <label className="flex items-start text-sm space-x-2 cursor-pointer">
               <input type="checkbox" className="accent-[#CEF14B] mt-1" />
               <span>
@@ -140,15 +190,20 @@ export default function Footer() {
         viewport={{ once: true }}
         className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm border-[#CEF14B] text-[#7dbb1f]"
       >
-        <p>© 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;</p>
+        <p>
+          © 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;
+        </p>
         <div className="space-x-5 mt-3 md:mt-0 flex flex-wrap justify-center md:justify-start gap-3 md:gap-0">
-          {['Security', 'Privacy & Cookie Policy', 'Terms of Service'].map((text, i) => (
-            <span
+          {["Security", "Privacy & Cookie Policy", "Terms of Service"].map((text, i) => (
+            <motion.span
               key={i}
-              className="cursor-pointer font-semibold hover:text-[#5a8f00] transition"
+              className="cursor-pointer font-semibold"
+              tabIndex={0}
+              whileHover={linkHover}
+              whileFocus={linkHover}
             >
               {text}
-            </span>
+            </motion.span>
           ))}
         </div>
       </motion.div>
