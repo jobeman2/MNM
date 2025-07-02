@@ -1,7 +1,7 @@
 'use client';
-import React from "react";
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import React from 'react';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
 
 const containerVariants: Variants = {
   hidden: {},
@@ -18,20 +18,19 @@ const sectionVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { ease: "easeOut", duration: 0.5, type: "spring", stiffness: 120 },
+    transition: { ease: [0.25, 0.1, 0.25, 1], duration: 0.5, type: 'spring', stiffness: 120 },
   },
 };
 
+// Animate only scale here; color handled in CSS
 const linkHover = {
   scale: 1.1,
-  color: "#5a8f00",
-  transition: { type: "spring", stiffness: 300 },
+  transition: { type: 'spring', stiffness: 300 },
 };
 
 const iconHover = {
   scale: 1.3,
-  color: "#7dbb1f",
-  transition: { type: "spring", stiffness: 300 },
+  transition: { type: 'spring', stiffness: 300 },
 };
 
 export default function Footer() {
@@ -39,7 +38,7 @@ export default function Footer() {
     <motion.footer
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className="px-6 py-12 md:px-16 bg-white font-dm-sans select-none"
     >
       <style>{`
@@ -67,6 +66,17 @@ export default function Footer() {
         button {
           transition: all 0.3s ease;
         }
+
+        /* Color change on hover/focus via CSS */
+        .link-hover:hover, .link-hover:focus {
+          color: #5a8f00;
+          outline: none;
+        }
+
+        .icon-hover:hover, .icon-hover:focus {
+          color: #7dbb1f;
+          outline: none;
+        }
       `}</style>
 
       <motion.div
@@ -84,10 +94,10 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6 mt-4">
             {[
-              { Icon: Facebook, href: "https://facebook.com/mbmpromotion", label: "Facebook" },
-              { Icon: Instagram, href: "https://instagram.com/mbmpromotion", label: "Instagram" },
-              { Icon: Twitter, href: "https://twitter.com/mbmpromotion", label: "Twitter" },
-              { Icon: Instagram, href: "https://behance.net/mbmpromotion", label: "Behance" },
+              { Icon: Facebook, href: 'https://facebook.com/mbmpromotion', label: 'Facebook' },
+              { Icon: Instagram, href: 'https://instagram.com/mbmpromotion', label: 'Instagram' },
+              { Icon: Twitter, href: 'https://twitter.com/mbmpromotion', label: 'Twitter' },
+              { Icon: Instagram, href: 'https://behance.net/mbmpromotion', label: 'Behance' },
             ].map(({ Icon, href, label }, i) => (
               <motion.a
                 key={i}
@@ -95,7 +105,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="cursor-pointer text-black"
+                className="sor-pointer text-black icon-hover"
                 whileHover={iconHover}
                 whileFocus={iconHover}
                 tabIndex={0}
@@ -112,16 +122,20 @@ export default function Footer() {
           <p className="text-sm mb-6">
             <strong>MBM Promotion Ethiopia</strong>
             <br />
-            Bole Sub City, Kebele 01<br />
-            Addis Abeba<br />
+            Bole Sub City, Kebele 01
+            <br />
+            Addis Abeba
+            <br />
             Ethiopia
           </p>
           <h4 className="font-semibold text-lg mb-3 text-[#7dbb1f]">Headquarters</h4>
           <p className="text-sm">
             <strong>MBM Promotion Ethiopia</strong>
             <br />
-            Bole Sub City, Kebele 01<br />
-            Addis Abeba<br />
+            Bole Sub City, Kebele 01
+            <br />
+            Addis Abeba
+            <br />
             Ethiopia
           </p>
         </motion.div>
@@ -133,18 +147,16 @@ export default function Footer() {
             Interested in activating your audience with Audio Ring Back Tone campaigns?
           </p>
           <motion.p
-            className="text-sm font-semibold cursor-text select-text mb-6"
-            style={{ userSelect: "text", cursor: "default" }}
+            className="text-sm font-semibold sor-text select-text mb-6"
+            style={{ userSelect: 'text', sor: 'default' }}
             tabIndex={0}
-            whileHover={{ color: "#5a8f00" }}
-            whileFocus={{ color: "#5a8f00" }}
           >
             hello@mbmpromotion.com
           </motion.p>
 
           <h4 className="font-semibold text-lg mb-3 text-[#7dbb1f]">Career</h4>
           <motion.p
-            className="text-sm cursor-pointer font-semibold underline"
+            className="text-sm sor-pointer font-semibold underline link-hover"
             tabIndex={0}
             whileHover={linkHover}
             whileFocus={linkHover}
@@ -172,7 +184,7 @@ export default function Footer() {
               </button>
             </div>
 
-            <label className="flex items-start text-sm space-x-2 cursor-pointer">
+            <label className="flex items-start text-sm space-x-2 sor-pointer">
               <input type="checkbox" className="accent-[#CEF14B] mt-1" />
               <span>
                 I’m okay with getting emails and having that activity tracked to improve my experience.
@@ -190,14 +202,12 @@ export default function Footer() {
         viewport={{ once: true }}
         className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm border-[#CEF14B] text-[#7dbb1f]"
       >
-        <p>
-          © 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;
-        </p>
+        <p>© 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;</p>
         <div className="space-x-5 mt-3 md:mt-0 flex flex-wrap justify-center md:justify-start gap-3 md:gap-0">
-          {["Security", "Privacy & Cookie Policy", "Terms of Service"].map((text, i) => (
+          {['Seity', 'Privacy & Cookie Policy', 'Terms of Service'].map((text, i) => (
             <motion.span
               key={i}
-              className="cursor-pointer font-semibold"
+              className="sor-pointer font-semibold link-hover"
               tabIndex={0}
               whileHover={linkHover}
               whileFocus={linkHover}

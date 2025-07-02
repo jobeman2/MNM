@@ -51,7 +51,7 @@ const FadeIn = ({ children }: { children: React.ReactNode }) => (
 export default function Home() {
   return (
     <div className={`${dmsansfont.variable} ${opensansfont.variable}`}>
-      <CustomCursor />
+     
       <Navbar />
 
       <FadeIn>

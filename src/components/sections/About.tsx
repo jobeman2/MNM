@@ -32,7 +32,7 @@ export default function AboutCard() {
         >
           {/* Circular glowing blob above her head, behind the image */}
           <motion.div
-            variants={blobVariants}
+     
             animate="animate"
             className="absolute w-48 h-48 bg-[#CEF14B] rounded-full blur-3xl opacity-40"
             style={{ top: '-4.5rem', left: '50%', translateX: '-50%' }}

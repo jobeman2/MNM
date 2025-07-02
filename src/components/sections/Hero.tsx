@@ -82,7 +82,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative drop-shadow-2xl mt-26 py-16 bg-gray-100 px-6 lg:px-20 overflow-hidden">
+      <section className="relative drop-shadow-2xl mt-26 py-16 m-5  shadow-1xl rounded-3xl bg-gray-100 px-6 lg:px-20 overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
