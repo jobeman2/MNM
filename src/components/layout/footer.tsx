@@ -51,7 +51,7 @@ export default function Footer() {
 
         input:focus {
           outline: none;
-          box-shadow: 0 0 10px 3px #cef14b;
+          box-shadow: 0 0 10px 3px #AFE371;
           background-color: #f9fff0;
           color: #000;
         }
@@ -157,7 +157,7 @@ export default function Footer() {
         <motion.div variants={sectionVariants}>
           <h4 className="font-semibold text-lg mb-5 text-[#7dbb1f]">Sign up for the newsletter</h4>
           <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex overflow-hidden rounded-lg border border-[#CEF14B]">
+            <div className="flex overflow-hidden rounded-lg border border-[#AFE371]">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -166,14 +166,14 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#CEF14B] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38]"
+                className="bg-[#AFE371] text-black px-5 text-xs font-semibold hover:bg-[#b8dd38]"
               >
                 Sign Up
               </button>
             </div>
 
             <label className="flex items-start text-sm space-x-2 cursor-pointer">
-              <input type="checkbox" className="accent-[#CEF14B] mt-1" />
+              <input type="checkbox" className="accent-[#AFE371] mt-1" />
               <span>
                 I’m okay with getting emails and having that activity tracked to improve my experience.
               </span>
@@ -188,7 +188,7 @@ export default function Footer() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm border-[#CEF14B] text-[#7dbb1f]"
+        className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm border-[#AFE371] text-[#7dbb1f]"
       >
         <p>
           © 2019–2025 MBM Promotion. All rights reserved &nbsp;|&nbsp;
