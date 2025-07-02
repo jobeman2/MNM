@@ -1,6 +1,6 @@
 'use client';
 
-import { Montserrat, DM_Sans, Open_Sans } from "next/font/google";
+import {  DM_Sans, Open_Sans } from "next/font/google";
 import { motion } from "framer-motion";
 
 import Navbar from "@/components/layout/Navbar";
@@ -11,8 +11,6 @@ import BrandLogos from "@/components/sections/brands";
 import Footer from "@/components/layout/footer";
 import PricingSection from "@/components/sections/Subscription";
 import CustomCursor from "@/components/customecursor";
-
-
 
 const dmsansfont = DM_Sans({
   subsets: ["latin"],
@@ -32,7 +30,7 @@ const fadeUp = {
 
 export default function Home() {
   return (
-    <div className={`${montserratFont.variable} ${dmsansfont.variable} ${opensansfont.variable}`}>
+    <div className={` ${dmsansfont.variable} ${opensansfont.variable}`}>
       <CustomCursor />
       <Navbar />
 
