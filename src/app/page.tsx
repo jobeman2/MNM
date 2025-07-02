@@ -12,10 +12,7 @@ import Footer from "@/components/layout/footer";
 import PricingSection from "@/components/sections/Subscription";
 import CustomCursor from "@/components/customecursor";
 
-const montserratFont = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-mont"
-});
+
 
 const dmsansfont = DM_Sans({
   subsets: ["latin"],
