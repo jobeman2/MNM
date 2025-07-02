@@ -12,8 +12,6 @@ import {
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { Play, Sparkles, PhoneCall, Zap, Camera, X } from 'lucide-react'
 
-const phrases = ['Let Every Ring Speak.', 'Reach Real Audiences.', 'Make Brands Move.']
-
 
 
 function Toast({

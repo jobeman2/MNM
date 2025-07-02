@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { CheckCircle, Radio, Users, DollarSign } from 'lucide-react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
@@ -44,17 +45,25 @@ const features = [
 export default function FeaturesSection() {
   return (
     <section className="relative font-dm py-24 px-6 lg:px-20 overflow-hidden bg-white">
-      {/* Background blobs */}
-      <img
-        src="/blobs/blob1.svg"
-        alt="blob"
-        className="pointer-events-none absolute top-[-100px] left-[-100px] w-[300px] opacity-20 animate-blob"
-      />
-      <img
-        src="/blobs/blob2.svg"
-        alt="blob"
-        className="pointer-events-none absolute bottom-[-100px] right-[-100px] w-[400px] opacity-20 animate-blob animation-delay-2000"
-      />
+      {/* Background blobs using next/image */}
+      <div className="pointer-events-none absolute top-[-100px] left-[-100px] w-[300px] opacity-20 animate-blob z-0">
+        <Image
+          src="/blobs/blob1.svg"
+          alt="Blob 1"
+          width={300}
+          height={300}
+          priority
+        />
+      </div>
+      <div className="pointer-events-none absolute bottom-[-100px] right-[-100px] w-[400px] opacity-20 animate-blob animation-delay-2000 z-0">
+        <Image
+          src="/blobs/blob2.svg"
+          alt="Blob 2"
+          width={400}
+          height={400}
+          priority
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 relative z-10">
         {features.map(({ title, icon: Icon, active, bullets }, index) => (
@@ -101,6 +110,7 @@ export default function FeaturesSection() {
         ))}
       </div>
 
+      {/* Blob animation styles */}
       <style jsx>{`
         @keyframes blob {
           0%, 100% {

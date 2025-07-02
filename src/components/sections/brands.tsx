@@ -1,6 +1,8 @@
 'use client'
-import React from "react";
-import Marquee from "react-fast-marquee";
+
+import React from "react"
+import Image from "next/image"
+import Marquee from "react-fast-marquee"
 
 const brands = [
   {
@@ -33,7 +35,7 @@ const brands = [
     logo: "/images/unnamed.png",
     alt: "Heineken",
   },
-];
+]
 
 export default function BrandLogos() {
   return (
@@ -48,17 +50,19 @@ export default function BrandLogos() {
               key={`${brand.name}-${index}`}
               className="flex items-center justify-center mx-8 h-24 grayscale hover:grayscale-0 transition duration-300"
             >
-              <img
-                src={brand.logo}
-                alt={brand.alt}
-                className="max-h-20 w-auto object-contain"
-                loading="lazy"
-              />
+              <div className="relative h-20 w-auto aspect-[3/1]">
+                <Image
+                  src={brand.logo}
+                  alt={brand.alt}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 120px, 180px"
+                />
+              </div>
             </div>
           ))}
         </Marquee>
-        
       </div>
     </section>
-  );
+  )
 }
